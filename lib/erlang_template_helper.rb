@@ -136,7 +136,7 @@ module Eth
         "{#{values1.join(", ")}}"
       else
         values1 = @values.map { |v| "\n#{indent(level+1)}#{v.pp(level+1)}" }
-        "[#{values1.join(", ")}\n#{indent(level)}]"
+        "[#{values1.join(",")}\n#{indent(level)}]"
       end
     end
   end
@@ -146,7 +146,7 @@ module Eth
 
     def initialize(hsh)
       @hsh = {}
-      hsh.map do |k,v|
+      hsh.sort.map do |k,v|
         k1 = Eth::String.new(k.to_s)
         v1 = convert(v)
         @hsh[k1] = v1
@@ -164,7 +164,7 @@ module Eth
       values = @hsh.map do |k,v|
         "\n#{indent(level+1)}{#{k.to_s}, #{v.pp(level+1)}}"
       end
-      "[#{values.join(", ")}\n#{indent(level)}]"
+      "[#{values.join(",")}\n#{indent(level)}]"
     end
   end
 

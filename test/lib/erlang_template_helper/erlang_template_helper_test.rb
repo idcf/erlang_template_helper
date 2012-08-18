@@ -55,6 +55,11 @@ describe "object conversions" do
     obj = Eth::Config.new(v)
     obj.to_s.must_equal "[{multi_backend_prefix_list, [{<<\"0b:\">>, be_blocks}]}]."
   end
+
+  it "should sort output" do
+    config = Eth::Config.new({"b" => {"d" => {"f" => 6, "c" => 3}, "b" => 2}, "a" => 1})
+    config.to_s.must_equal "[{a, 1}, {b, [{b, 2}, {d, [{c, 3}, {f, 6}]}]}]."
+  end
 end
 
 describe "pretty print" do

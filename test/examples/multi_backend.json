@@ -1,8 +1,5 @@
 {
   "riak_kv": {
-    "multi_backend_prefix_list": {
-      "__binary_0b:": "be_blocks"
-    },
     "multi_backend": [
       [
         "__tuple",
@@ -22,6 +19,9 @@
           "data_root": "__string_/var/lib/riak/bitcask"
         }
       ]
-    ]
+    ],
+    "multi_backend_prefix_list": {
+      "__binary_0b:": "be_blocks"
+    }
   }
 }
