@@ -145,23 +145,23 @@ module Eth
     include InstanceMethods
 
     def initialize(hsh)
-      @hsh = {}
+      @data = []
       hsh.sort.map do |k,v|
         k1 = Eth::String.new(k.to_s)
         v1 = convert(v)
-        @hsh[k1] = v1
+        @data << [k1, v1]
       end
     end
 
     def to_s
-      values = @hsh.map do |k,v|
+      values = @data.map do |k,v|
         "{#{k.to_s}, #{v.to_s}}"
       end
       "[#{values.join(", ")}]"
     end
 
     def pp(level=0)
-      values = @hsh.map do |k,v|
+      values = @data.map do |k,v|
         "\n#{indent(level+1)}{#{k.to_s}, #{v.pp(level+1)}}"
       end
       "[#{values.join(",")}\n#{indent(level)}]"
