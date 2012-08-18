@@ -100,7 +100,7 @@ class Array; include Eth::Erlang::Array; end
 ### Args
 
 Arguments can be specified as a simple JSON object. Nested objects are flattened
-but joining the keys and final value by a single space. For example:
+by joining the keys and final value by a single space. For example:
 
 ```ruby
 > require "erlang_template_helper"
